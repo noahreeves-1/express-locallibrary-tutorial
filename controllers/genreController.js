@@ -2,7 +2,6 @@ const Genre = require("../models/genre");
 const Book = require("../models/book");
 const async = require("async");
 const { body, validationResult } = require("express-validator");
-const genre = require("../models/genre");
 
 // Display list of all Genre.
 exports.genre_list = (req, res, next) => {
@@ -27,7 +26,6 @@ exports.genre_detail = (req, res, next) => {
       genre(callback) {
         Genre.findById(req.params.id).exec(callback);
       },
-
       genres_books(callback) {
         Book.find({ genre: req.params.id }).exec(callback);
       },
